@@ -28,7 +28,12 @@ def recommend(movie):
 movies_dict= pickle.load(open('model/movies.pkl', 'rb'))
 movies= pd.DataFrame(movies_dict)
 
-similarity= pickle.load(open('model/similarity.pkl', 'rb'))
+with open('model/similarity.pkl', 'rb') as f:
+    try:
+        similarity = pickle.load(f)
+        print("Pickle file loaded successfully.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 st.title("Movie Recommender System")
