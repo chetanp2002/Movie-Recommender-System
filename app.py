@@ -33,7 +33,8 @@ with open('model/similarity.pkl', 'rb') as f:
         similarity = pickle.load(f)
         print("Pickle file loaded successfully.")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error loading similarity.pkl: {e}")
+        exit()
 
 
 st.title("Movie Recommender System")
